@@ -72,17 +72,17 @@ Download [Claude](https://claude.ai/download) desktop and open it
 ## Step 1
 Select setting from the file menu
 
-![add_mcp_to_claude_step-1.png](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-1.png)
+![step 1](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-1.png)
 
 ## Step 2
 Click on `Developer` then `Edit Config`
 
-[add_mcp_to_claude_step-2.png](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-2.png)
+[step 2](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-2.png)
 
 ## Step 3
 Open `claude_desktop_config.json`
 
-[add_mcp_to_claude_step-3.png](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-3.png)
+[step 3](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-3.png)
 
 ## Step 4
 Write this configuration in the file
@@ -105,15 +105,15 @@ Write this configuration in the file
 
 Don't forget to replace `PROJECT_PATH_ON_YOUR_PC` with the absolute path to your project server
 
-[add_mcp_to_claude_step-4.png](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-4.png)
+[step 4](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-4.png)
 
 ## Step 5
 Restart Claude app (make sure it's completely closed from your taskbar by right click on Claude icon and select `Quit`)
 
 Check if the new MCP has been added
 
-[add_mcp_to_claude_step-5.png](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-5.png)
+[step 5](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-5.png)
 
 Click on tools icon 
 
-[add_mcp_to_claude_step-6.png](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-6.png)
+[step 6](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/add_mcp_to_claude_step-6.png)
