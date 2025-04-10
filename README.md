@@ -50,4 +50,4 @@ python client.py
 
 now you can directly chat with GPT4o in your terminal
 
-![alt text](http://url/to/img.png)
+![server running in terminal](https://github.com/marwanWaly/quran_cloud_mcp_server/blob/main/imgs/run_server_in_terminal.PNG?raw=true)
