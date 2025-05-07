@@ -14,22 +14,21 @@ QURAN_API_BASE = "http://api.alquran.cloud/v1"
 
 @mcp.tool()
 async def surah_info(surah_number: int) -> str:
-    f"""Retrieve details about a specific Surah (سورة) (Name in Arabic and English, Number of verses, Revelation type).
-    according to this mapping:
+    f"""Retrieve details about a specific Surah (سورة) (Name in Arabic and English, Number of verses, Revelation type) according to this mapping:
     {quran_details}
     
-    Always return the islamic information as it's without any rephrasing.
+    Always return the Islamic information as it is without any rephrasing.
     Args:
         surah_number: The number of the Surah to retrieve from 1 to 114.
     """
     if 1 > surah_number > 114:
-        return "Invalid Surah number please select number between 1 to 114 only"
+        return "Invalid Surah number, please select number between 1 and 114 only"
 
     async with httpx.AsyncClient() as client:
         response = await client.get(f"{QURAN_API_BASE}/surah")
 
         if response.status_code != 200:
-            return "API error cannot get the answer right now"
+            return "API error: cannot get the answer right now"
 
         data = response.json()["data"]
 
@@ -49,23 +48,23 @@ async def surah_info(surah_number: int) -> str:
 @mcp.tool()
 async def get_verses(surah_number: int, from_ayah: int, to_ayah: int) -> str:
     f"""Retrieve verses from specific Surah (سورة) in Arabic only.
-    according to this mapping:
+    According to this mapping:
     {quran_details}
     
-    Always return the islamic information as it's without any rephrasing.
+    Always return the Islamic information as it is without any rephrasing.
     Args:
         surah_number: The number of the Surah to retrieve from 1 to 114.
         from_ayah: The number of the first verse to retrieve.
         to_ayah: The number of the last verse to retrieve.
     """
     if 1 > surah_number > 114:
-        return "Invalid Surah number please select number between 1 to 114 only"
+        return "Invalid Surah number, please select a number between 1 and 114 only"
 
     async with httpx.AsyncClient() as client:
         response = await client.get(f"{QURAN_API_BASE}/surah/{surah_number}?offset={from_ayah-1}&limit={to_ayah-from_ayah+1}")
 
         if response.status_code != 200:
-            return "API error cannot get the answer right now"
+            return "API error: cannot get the answer right now"
 
         data = response.json()["data"]
 
@@ -74,12 +73,12 @@ async def get_verses(surah_number: int, from_ayah: int, to_ayah: int) -> str:
 
 @mcp.tool()
 async def search_quran(text_to_search_with: str, language: available_languages = "ar", top_k: int = 5) -> str:
-    f"""Search in the Quran for any verse (آية) contains these text.
-        Always return the islamic information as it's without any rephrasing.
+    f"""Search in the Quran for any verse (آية) that contains this text.
+        Always return the Islamic information as it is without any rephrasing.
     Args:
-        text_to_search_with: The number of the Surah to retrieve from 1 to 114.
-        language: two character key for the language that you want to search in for example (ar for Arabic, en for English).
-        top_k: the number of most relevant answer to return.
+        text_to_search_with: the text you want to search in the Quran.
+        language: two-character keys for the language you want to search in, for example (ar for Arabic, en for English, id for Bahasa Indonesia).
+        top_k: the number of the most relevant answers to return.
     """
     if not text_to_search_with:
         return "No text to search"
@@ -107,7 +106,7 @@ async def search_quran(text_to_search_with: str, language: available_languages =
 
 
 def create_starlette_app(mcp_server: Server, *, debug: bool = False) -> Starlette:
-    """Create a Starlette application that can server the provied mcp server with SSE."""
+    """Create a Starlette application that can serve the provided MCP server with SSE."""
     sse = SseServerTransport("/messages/")
 
     async def handle_sse(request: Request) -> None:
@@ -141,7 +140,7 @@ if __name__ == "__main__":
     parser.add_argument('--port', type=int, default=80, help='Port to listen on')
     args = parser.parse_args()
 
-    # Bind SSE request handling to MCP server
+    # Bind SSE request handling to the MCP server
     starlette_app = create_starlette_app(mcp_server, debug=True)
 
     uvicorn.run(starlette_app, host=args.host, port=args.port)
